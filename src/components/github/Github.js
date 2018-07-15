@@ -97,10 +97,11 @@ export const Github = ({ width, colors, color, onChange, onSwatchHover, triangle
     <div style={ styles.card } className={ `github-picker ${ className }` }>
       <div style={ styles.triangleShadow } />
       <div style={ styles.triangle } />
-      { map(colors, c => (
+      { map(colors, (c) => (
         <GithubSwatch
           color={ c }
-          active={ c === color }
+          active={ c.toUpperCase() === color.toUpperCase() }
+          white={ c.toUpperCase() === '#FFF' || c.toUpperCase() === '#FFFFFF'}
           key={ c }
           onClick={ handleChange }
           onSwatchHover={ onSwatchHover }

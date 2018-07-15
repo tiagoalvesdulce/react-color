@@ -6,7 +6,7 @@ import map from 'lodash/map'
 import { ColorWrap } from '../common'
 import GithubSwatch from './GithubSwatch'
 
-export const Github = ({ width, colors, onChange, onSwatchHover, triangle,
+export const Github = ({ width, colors, color, onChange, onSwatchHover, triangle,
   className = '' }) => {
   const styles = reactCSS({
     'default': {
@@ -93,7 +93,6 @@ export const Github = ({ width, colors, onChange, onSwatchHover, triangle,
   })
 
   const handleChange = (hex, e) => onChange({ hex, source: 'hex' }, e)
-
   return (
     <div style={ styles.card } className={ `github-picker ${ className }` }>
       <div style={ styles.triangleShadow } />
@@ -101,6 +100,7 @@ export const Github = ({ width, colors, onChange, onSwatchHover, triangle,
       { map(colors, c => (
         <GithubSwatch
           color={ c }
+          active={ c === color }
           key={ c }
           onClick={ handleChange }
           onSwatchHover={ onSwatchHover }

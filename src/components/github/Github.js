@@ -102,6 +102,7 @@ export const Github = ({ width, colors, color, onChange, onSwatchHover, triangle
           color={ c }
           active={ c.toUpperCase() === color.toUpperCase() }
           white={ c.toUpperCase() === '#FFF' || c.toUpperCase() === '#FFFFFF'}
+          black={ c.toUpperCase() === '#140E10' || c.toUpperCase() === '#140E10'}
           key={ c }
           onClick={ handleChange }
           onSwatchHover={ onSwatchHover }

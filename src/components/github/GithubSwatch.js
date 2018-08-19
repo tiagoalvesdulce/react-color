@@ -3,19 +3,26 @@ import reactCSS, { handleHover } from 'reactcss'
 
 import { Swatch } from '../common'
 
-export const GithubSwatch = ({ white, active, hover, color, onClick, onSwatchHover }) => {
+export const GithubSwatch = ({ white, black, active, hover, color, onClick, onSwatchHover }) => {
   const hoverSwatch = {
     position: 'relative',
     zIndex: '2',
     outline: '2px solid #fff',
-    boxShadow: '0 0 5px 2px rgba(0,0,0,0.25)',
+    boxShadow: '0 0 5px 2px rgba(255,255,255,0.5)',
   }
 
   const whiteActiveStyle = {
     position: 'relative',
     zIndex: '2',
-    outline: '2px solid #000',
-    boxShadow: '0 0 5px 2px rgba(255,255,255,0.25)',
+    border: '2px solid #000',
+    borderRadius: '2px',
+  }
+
+  const blackActiveStyle = {
+    position: 'relative',
+    zIndex: '2',
+    border: '2px solid #aaa',
+    borderRadius: '2px',
   }
 
   const whiteStyle = {
@@ -28,12 +35,15 @@ export const GithubSwatch = ({ white, active, hover, color, onClick, onSwatchHov
         width: '25px',
         height: '25px',
         fontSize: '0',
+        margin: '2px',
       },
     },
     'hover': {
       swatch: hoverSwatch,
     },
   }, { hover })
+
+  if (active) console.log(color, black)
 
   return (
     <div style={ styles.swatch }>
@@ -42,11 +52,13 @@ export const GithubSwatch = ({ white, active, hover, color, onClick, onSwatchHov
         color={ color }
         onClick={ onClick }
         onHover={ onSwatchHover }
+        black={ black }
         white={ white }
         whiteStyle={ whiteStyle }
         whiteActiveStyle={ whiteActiveStyle }
+        blackActiveStyle={ blackActiveStyle }
         focusStyle={ hoverSwatch }
-        activeStyle={ hoverSwatch }
+        activeStyle={ whiteActiveStyle }
       />
     </div>
   )

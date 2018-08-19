@@ -43,8 +43,6 @@ export const GithubSwatch = ({ white, black, active, hover, color, onClick, onSw
     },
   }, { hover })
 
-  if (active) console.log(color, black)
-
   return (
     <div style={ styles.swatch }>
       <Swatch
